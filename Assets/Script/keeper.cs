@@ -62,7 +62,7 @@ public class keeper : MonoBehaviour
         // プレーヤーの位置情報を「pos」という箱の中に入れる。
         pos = transform.position;
 
-        pos.x = Mathf.Clamp(pos.x, -6, -3);
+        pos.x = Mathf.Clamp(pos.x, -0.5f, 0.5f);
 
         transform.position = pos;
     }

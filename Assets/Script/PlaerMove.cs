@@ -7,6 +7,7 @@ public class PlaerMove : MonoBehaviour
     private Vector3 pos;
     public float posUp;
     public float posDown;
+    public float moveSpeed;
     float YInp;
     float YInp2;
 
@@ -24,35 +25,36 @@ public class PlaerMove : MonoBehaviour
             YInp2 = Input.GetAxis("Vertical2");
             if (YInp > 0 && gameObject.tag == ("SoccerPlayer"))
             {
-                transform.Translate(0, 0, 0.3f);
+                transform.Translate(0, 0, moveSpeed);
             }
             if (YInp < 0 && gameObject.tag == ("SoccerPlayer"))
             {
-                transform.Translate(0, 0, -0.3f);
+                transform.Translate(0, 0, -moveSpeed);
             }
             if (YInp2 < 0 && gameObject.tag == ("SoccerPlayer2"))
             {
-                transform.Translate(0, 0, -0.3f);
+                transform.Translate(0, 0, -moveSpeed);
             }
             if (YInp2 > 0 && gameObject.tag == ("SoccerPlayer2"))
             {
-                transform.Translate(0, 0, 0.3f);
+                transform.Translate(0, 0, moveSpeed);
             }
+
             if (Input.GetKey(KeyCode.W) && gameObject.tag == ("SoccerPlayer"))
             {
-                transform.Translate(0, 0, 0.3f);
+                transform.Translate(0, 0, moveSpeed);
             }
             if (Input.GetKey(KeyCode.S) && gameObject.tag == ("SoccerPlayer"))
             {
-                transform.Translate(0, 0, -0.3f);
+                transform.Translate(0, 0, -moveSpeed);
             }
             if (Input.GetKey(KeyCode.I) && gameObject.tag == ("SoccerPlayer2"))
             {
-                transform.Translate(0, 0, 0.3f);
+                transform.Translate(0, 0, moveSpeed);
             }
             if (Input.GetKey(KeyCode.K) && gameObject.tag == ("SoccerPlayer2"))
             {
-                transform.Translate(0, 0, -0.3f);
+                transform.Translate(0, 0, -moveSpeed);
             }
             Clamp();
         }

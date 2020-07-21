@@ -31,8 +31,8 @@ public class BallPos : MonoBehaviour
         // プレーヤーの位置情報を「pos」という箱の中に入れる。
         pos = transform.position;
 
-        pos.x = Mathf.Clamp(pos.x, -8.6f, 0);
-        pos.z = Mathf.Clamp(pos.z, -16.3f, -1.75f);
+        pos.x = Mathf.Clamp(pos.x, -1.2f, 1.2f);
+        pos.z = Mathf.Clamp(pos.z, -5, 5f);
 
         transform.position = pos;
     }
