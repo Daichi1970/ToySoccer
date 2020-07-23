@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SoccerPlayer : MonoBehaviour
+public class TurnPlayer : MonoBehaviour
 {
     private float StopCoroutine = 0;
     bool Player1RightOn;
