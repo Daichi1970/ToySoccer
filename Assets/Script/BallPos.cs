@@ -10,8 +10,8 @@ public class BallPos : MonoBehaviour
     private Vector3 newVector;
     static int GoalCount1;
     static int GoalCount2;
-    public Text GoalCountText1;
-    public Text GoalCountText2;
+    public TextMesh GoalCountText1;
+    public TextMesh GoalCountText2;
     private AudioSource audioSource;
     public AudioClip audioClip1;
     bool clamp = true;

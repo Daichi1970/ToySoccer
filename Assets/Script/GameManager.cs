@@ -7,7 +7,7 @@ using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour
 {
     public Text StartTimerText;
-    public Text GameTimerText;
+    public TextMesh GameTimerText;
     public Text GameText;
     public float GameTime;
     static int Count = 1;
