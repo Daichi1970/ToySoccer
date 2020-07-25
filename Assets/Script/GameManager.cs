@@ -10,6 +10,7 @@ public class GameManager : MonoBehaviour
     public TextMesh GameTimerText;
     public Text GameTimeText;
     public Text GameText;
+    public GameObject second;
 
     float Interval = 3;
 
@@ -60,6 +61,7 @@ public class GameManager : MonoBehaviour
         }
         if (GameCount > 45)
         {
+            second.transform.eulerAngles = new Vector3(0, 0, 0);
             if (InGameCount <= 2)
                 InGameCount++;
         }
@@ -68,6 +70,7 @@ public class GameManager : MonoBehaviour
             StartTimerText.text = "";
             GameCount += Time.deltaTime;
             GameTimerText.text = GameCount.ToString("N0");
+            second.transform.eulerAngles += new Vector3(0, Time.deltaTime*6, 0);
         }
     }
     //試合外
