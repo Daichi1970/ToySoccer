@@ -64,7 +64,7 @@ public class GameManager : MonoBehaviour
                 StartCount = 3;
                 break;
         }
-        if (GameCount > 10)
+        if (GameCount > 45)
         {
             SecondPos = new Quaternion(0, 0, 0, 0);
             if (InGameCount <= 2)
