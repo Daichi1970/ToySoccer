@@ -21,6 +21,7 @@ public class GameManager : MonoBehaviour
     static float StartCount = 3;
     static float GameCount;
     static Quaternion SecondPos;
+    static bool PlayOneShot = true;
 
     public static bool Game = false;
 
@@ -30,8 +31,7 @@ public class GameManager : MonoBehaviour
     }
 
     void Update()
-    {
-        Debug.Log(second.transform.rotation);
+    { 
         if (StartCount >= 0)
         {
             Game = false;
@@ -64,7 +64,7 @@ public class GameManager : MonoBehaviour
                 StartCount = 3;
                 break;
         }
-        if (GameCount > 45)
+        if (GameCount > 10)
         {
             SecondPos = new Quaternion(0, 0, 0, 0);
             if (InGameCount <= 2)
@@ -96,13 +96,16 @@ public class GameManager : MonoBehaviour
                 Interval -= Time.deltaTime;
                 if (Interval <= 0)
                 {
-                    Interval = 3;
-                    NotGameCount++;
+                    NextSwitch();
                 }
-                //サウンド再生
-                audioSource = gameObject.GetComponent<AudioSource>();
-                audioSource.clip = audioClip1;
-                audioSource.Play();
+                if (PlayOneShot)
+                {
+                    //サウンド再生
+                    audioSource = gameObject.GetComponent<AudioSource>();
+                    audioSource.clip = audioClip1;
+                    audioSource.Play();
+                    PlayOneShot = false;
+                }
                 break;
             case 1:
                 GameCount = 0;
@@ -124,21 +127,23 @@ public class GameManager : MonoBehaviour
                 Interval -= Time.deltaTime;
                 if (Interval <= 0)
                 {
-                    Interval = 3;
-                    NotGameCount++;
+                    NextSwitch();
                 }
-                //サウンド再生
-                audioSource = gameObject.GetComponent<AudioSource>();
-                audioSource.clip = audioClip1;
-                audioSource.Play();
+                if (PlayOneShot)
+                {
+                    //サウンド再生
+                    audioSource = gameObject.GetComponent<AudioSource>();
+                    audioSource.clip = audioClip1;
+                    audioSource.Play();
+                    PlayOneShot = false;
+                }
                 break;
             case 4:
                 GameText.text = "後半戦";
                 Interval -= Time.deltaTime;
                 if (Interval <= 0)
                 {
-                    Interval = 3;
-                    NotGameCount++;
+                    NextSwitch();
                 }
                 break;
             case 5:
@@ -151,15 +156,18 @@ public class GameManager : MonoBehaviour
                 GameText.text = "試合終了";
                 StartTimerText.text = "";
                 GameTimeText.text = "";
-                //サウンド再生
-                audioSource = gameObject.GetComponent<AudioSource>();
-                audioSource.clip = audioClip1;
-                audioSource.Play();
                 Interval -= Time.deltaTime;
                 if (Interval <= 0)
                 {
-                    Interval = 3;
-                    NotGameCount++;
+                    NextSwitch();
+                }
+                if (PlayOneShot)
+                {
+                    //サウンド再生
+                    audioSource = gameObject.GetComponent<AudioSource>();
+                    audioSource.clip = audioClip1;
+                    audioSource.Play();
+                    PlayOneShot = false;
                 }
                 break;
             case 7:
@@ -167,8 +175,13 @@ public class GameManager : MonoBehaviour
                 {
                     GameText.text = "Player1 Win";
                 }
-                else
+                else if(BallPos.GoalCount1 < BallPos.GoalCount2)
+                {
                     GameText.text = "Player2 Win";
+                }
+                else
+                    GameText.text = "Drow";
+                GameText.text += "\n"+ BallPos.GoalCount1 +"-" + BallPos.GoalCount2;
                 break;
         }
         if (StartCount <= 0)
@@ -176,5 +189,11 @@ public class GameManager : MonoBehaviour
             if (NotGameCount <= 6)
                 NotGameCount++;
         }
+    }
+    void NextSwitch()
+    {
+        Interval = 3;
+        PlayOneShot = true;
+        NotGameCount++;
     }
 }
