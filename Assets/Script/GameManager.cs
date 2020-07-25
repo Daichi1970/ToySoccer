@@ -8,10 +8,13 @@ public class GameManager : MonoBehaviour
 {
     public Text StartTimerText;
     public TextMesh GameTimerText;
+    public Text GameTimeText;
     public Text GameText;
     public float GameTime;
-    static int Count = 1;
-    static float StartCount = 4;
+    float Interval = 3;
+    static int InGameCount = 0;
+    static int NotGameCount = 0;
+    static float StartCount = 3;
     static float GameCount;
     public static bool Game = false;
 
@@ -22,56 +25,42 @@ public class GameManager : MonoBehaviour
 
     void Update()
     {
-        Debug.Log(Count);
         if (StartCount >= 0)
         {
+            Game = false;
             NotGame();
         }
         else if (StartCount < 0)
         {
+            Game = true;
             InGame();
         }
     }
     void InGame()
     {
-        switch (Count)
+        Debug.Log("InGameCount:"+InGameCount);
+        Debug.Log("NotGameCount:" + NotGameCount);
+        switch (InGameCount)
         {
+            case 0:
+                GameTimeText.text = "前半";
+                break;
             case 1:
-                Debug.Log("前半");
-                GameText.text = "前半";
-                Game = true;
+                StartCount = 3;
                 break;
             case 2:
-                Debug.Log("前半終了");
-                // 現在のScene名を取得する
-                Scene loadScene = SceneManager.GetActiveScene();
-                // Sceneの読み直し
-                SceneManager.LoadScene(loadScene.name);
-                StartCount = 3;
-                StartTimerText.text = "前半終了";
-                Game = false;
+                GameTimeText.text = "後半";
                 break;
             case 3:
-                Debug.Log("後半");
-                GameText.text = "後半";
-                Game = true;
-                break;
-            case 4:
-                Debug.Log("試合終了");
-                // 現在のScene名を取得する
-                loadScene = SceneManager.GetActiveScene();
-                // Sceneの読み直し
-                SceneManager.LoadScene(loadScene.name);
-                Game = false;
-                StartTimerText.text = "試合終了";
+                StartCount = 3;
                 break;
         }
         if (GameCount > 45)
         {
-            if (Count <= 3)
-                Count++;
+            if (InGameCount <= 2)
+                InGameCount++;
         }
-       else
+        else
         {
             StartTimerText.text = "";
             GameCount += Time.deltaTime;
@@ -80,8 +69,65 @@ public class GameManager : MonoBehaviour
     }
     void NotGame()
     {
-        GameCount = 0;
-        StartCount -= Time.deltaTime;
-        StartTimerText.text = StartCount.ToString("N0");
+        switch (NotGameCount)
+        {
+            case 0:
+                GameText.text = "前半戦";
+                StartTimerText.text = "";
+                Interval -= Time.deltaTime;
+                if (Interval <= 0)
+                {
+                    Interval = 3;
+                    NotGameCount++;
+                }
+                break;
+            case 1:
+                GameCount = 0;
+                StartCount -= Time.deltaTime;
+                GameText.text = "";
+                StartTimerText.text = StartCount.ToString("N0");
+                break;
+            case 2:
+                // 現在のScene名を取得する
+                Scene loadScene = SceneManager.GetActiveScene();
+                // Sceneの読み直し
+                SceneManager.LoadScene(loadScene.name);
+                NotGameCount++;
+                break;
+            case 3:
+                GameText.text = "前半終了";
+                StartTimerText.text = "";
+                Interval -= Time.deltaTime;
+                if (Interval <= 0)
+                {
+                    Interval = 3;
+                    NotGameCount++;
+                }
+                break;
+            case 4:
+                GameText.text = "後半戦";
+                Interval -= Time.deltaTime;
+                if (Interval <= 0)
+                {
+                    Interval = 3;
+                    NotGameCount++;
+                }
+                break;
+            case 5:
+                GameCount = 0;
+                StartCount -= Time.deltaTime;
+                StartTimerText.text = StartCount.ToString("N0");
+                GameText.text = "";
+                break;
+            case 6:
+                GameText.text = "試合終了";
+                StartTimerText.text = "";
+                break;
+        }
+        if (StartCount <= 0)
+        {
+            if (NotGameCount <= 5)
+                NotGameCount++;
+        }
     }
 }
