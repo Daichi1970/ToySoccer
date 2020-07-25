@@ -15,11 +15,11 @@ public class BallPos : MonoBehaviour
 
     static int GoalCount1;
     static int GoalCount2;
-
-    bool clamp = true;
+    bool clamp;
 
     void Start()
     {
+        clamp = true;
         GoalCountText1.text = GoalCount1.ToString();
         GoalCountText2.text = GoalCount2.ToString();
     }
@@ -28,7 +28,7 @@ public class BallPos : MonoBehaviour
     void Update()
     {
         Debug.Log(clamp);
-        if (transform.position.z >= 3.3f && transform.position.x <= 0.6f && transform.position.x >= -0.6f)
+        if (transform.position.z >= 3.3f && transform.position.x <= 0.65f && transform.position.x >= -0.65f)
         {
             GoalCount1++;
             GoalCountText1.text = GoalCount1.ToString();
@@ -37,7 +37,7 @@ public class BallPos : MonoBehaviour
             // Sceneの読み直し
             SceneManager.LoadScene(loadScene.name);
         }
-        if (transform.position.z <= -3.3f && transform.position.x <= 0.6 && transform.position.x >= -0.6f)
+        if (transform.position.z <= -3.3f && transform.position.x <= 0.65 && transform.position.x >= -0.65f)
         {
             GoalCount2++;
             GoalCountText2.text = GoalCount2.ToString();
@@ -55,7 +55,7 @@ public class BallPos : MonoBehaviour
         // ボールの位置情報を「pos」という箱の中に入れる。
         pos = transform.position;
 
-        pos.x = Mathf.Clamp(pos.x, -1.2f, 1.2f);
+        pos.x = Mathf.Clamp(pos.x, -1.1f, 1.1f);
         pos.z = Mathf.Clamp(pos.z, -3, 3f);
 
         transform.position = pos;

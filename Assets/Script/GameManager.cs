@@ -6,11 +6,13 @@ using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
+    private AudioSource audioSource;
+
     public Text StartTimerText;
-    public TextMesh GameTimerText;
     public Text GameTimeText;
     public Text GameText;
     public GameObject second;
+    public AudioClip audioClip1;
 
     float Interval = 3;
 
@@ -18,12 +20,13 @@ public class GameManager : MonoBehaviour
     static int NotGameCount = 0;
     static float StartCount = 3;
     static float GameCount;
+    static Quaternion SecondPos;
 
     public static bool Game = false;
 
     void Start()
     {
-
+        second.transform.rotation = SecondPos;
     }
 
     void Update()
@@ -42,8 +45,9 @@ public class GameManager : MonoBehaviour
     //試合中
     void InGame()
     {
-        Debug.Log("InGameCount:"+InGameCount);
-        Debug.Log("NotGameCount:" + NotGameCount);
+        SecondPos = second.transform.rotation;
+        second.transform.rotation = SecondPos;
+
         switch (InGameCount)
         {
             case 0:
@@ -69,8 +73,15 @@ public class GameManager : MonoBehaviour
         {
             StartTimerText.text = "";
             GameCount += Time.deltaTime;
-            GameTimerText.text = GameCount.ToString("N0");
-            second.transform.eulerAngles += new Vector3(0, Time.deltaTime*6, 0);
+            second.transform.eulerAngles += new Vector3(0, Time.deltaTime * 6, 0);
+        }
+        //デバッグ用
+        if (Input.GetKeyDown(KeyCode.Y))
+        {
+            // 現在のScene名を取得する
+            Scene loadScene = SceneManager.GetActiveScene();
+            // Sceneの読み直し
+            SceneManager.LoadScene(loadScene.name);
         }
     }
     //試合外
@@ -87,6 +98,10 @@ public class GameManager : MonoBehaviour
                     Interval = 3;
                     NotGameCount++;
                 }
+                //サウンド再生
+                audioSource = gameObject.GetComponent<AudioSource>();
+                audioSource.clip = audioClip1;
+                audioSource.Play();
                 break;
             case 1:
                 GameCount = 0;
@@ -110,6 +125,10 @@ public class GameManager : MonoBehaviour
                     Interval = 3;
                     NotGameCount++;
                 }
+                //サウンド再生
+                audioSource = gameObject.GetComponent<AudioSource>();
+                audioSource.clip = audioClip1;
+                audioSource.Play();
                 break;
             case 4:
                 GameText.text = "後半戦";
@@ -129,6 +148,10 @@ public class GameManager : MonoBehaviour
             case 6:
                 GameText.text = "試合終了";
                 StartTimerText.text = "";
+                //サウンド再生
+                audioSource = gameObject.GetComponent<AudioSource>();
+                audioSource.clip = audioClip1;
+                audioSource.Play();
                 break;
         }
         if (StartCount <= 0)
