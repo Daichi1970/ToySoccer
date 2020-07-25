@@ -31,6 +31,7 @@ public class GameManager : MonoBehaviour
 
     void Update()
     {
+        Debug.Log(second.transform.rotation);
         if (StartCount >= 0)
         {
             Game = false;
@@ -65,7 +66,7 @@ public class GameManager : MonoBehaviour
         }
         if (GameCount > 45)
         {
-            second.transform.eulerAngles = new Vector3(0, 0, 0);
+            SecondPos = new Quaternion(0, 0, 0, 0);
             if (InGameCount <= 2)
                 InGameCount++;
         }
@@ -110,6 +111,7 @@ public class GameManager : MonoBehaviour
                 StartTimerText.text = StartCount.ToString("N0");
                 break;
             case 2:
+                //SecondPos = new Quaternion(0, 1, 0, 0);
                 // 現在のScene名を取得する
                 Scene loadScene = SceneManager.GetActiveScene();
                 // Sceneの読み直し
@@ -148,15 +150,30 @@ public class GameManager : MonoBehaviour
             case 6:
                 GameText.text = "試合終了";
                 StartTimerText.text = "";
+                GameTimeText.text = "";
                 //サウンド再生
                 audioSource = gameObject.GetComponent<AudioSource>();
                 audioSource.clip = audioClip1;
                 audioSource.Play();
+                Interval -= Time.deltaTime;
+                if (Interval <= 0)
+                {
+                    Interval = 3;
+                    NotGameCount++;
+                }
+                break;
+            case 7:
+                if (BallPos.GoalCount1 > BallPos.GoalCount2)
+                {
+                    GameText.text = "Player1 Win";
+                }
+                else
+                    GameText.text = "Player2 Win";
                 break;
         }
         if (StartCount <= 0)
         {
-            if (NotGameCount <= 5)
+            if (NotGameCount <= 6)
                 NotGameCount++;
         }
     }

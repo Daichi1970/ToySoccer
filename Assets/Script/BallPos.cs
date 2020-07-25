@@ -13,8 +13,8 @@ public class BallPos : MonoBehaviour
     public TextMesh GoalCountText2;
     public AudioClip audioClip1;
 
-    static int GoalCount1;
-    static int GoalCount2;
+    public static int GoalCount1;
+    public static int GoalCount2;
     bool clamp;
 
     void Start()
