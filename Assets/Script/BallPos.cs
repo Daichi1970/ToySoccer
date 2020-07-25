@@ -7,13 +7,15 @@ using UnityEngine.SceneManagement;
 public class BallPos : MonoBehaviour
 {
     private Vector3 pos;
-    private Vector3 newVector;
-    static int GoalCount1;
-    static int GoalCount2;
+    private AudioSource audioSource;
+
     public TextMesh GoalCountText1;
     public TextMesh GoalCountText2;
-    private AudioSource audioSource;
     public AudioClip audioClip1;
+
+    static int GoalCount1;
+    static int GoalCount2;
+
     bool clamp = true;
 
     void Start()
@@ -47,10 +49,10 @@ public class BallPos : MonoBehaviour
         if(clamp)
             Clamp();
     }
-    // プレーヤーの移動できる範囲を制限する命令ブロック
+    // ボールの移動できる範囲を制限する命令ブロック
     void Clamp()
     {
-        // プレーヤーの位置情報を「pos」という箱の中に入れる。
+        // ボールの位置情報を「pos」という箱の中に入れる。
         pos = transform.position;
 
         pos.x = Mathf.Clamp(pos.x, -1.2f, 1.2f);
@@ -60,12 +62,14 @@ public class BallPos : MonoBehaviour
     }
     private void OnCollisionEnter(Collision collision)
     {
+        //サウンド再生
         audioSource = gameObject.GetComponent<AudioSource>();
         audioSource.clip = audioClip1;
         audioSource.Play();
     }
     private void OnTriggerEnter(Collider other)
     {
+        //ボールの移動できる範囲を制限を外す
         if (other.gameObject.name == "Goal")
         {
             clamp = false;

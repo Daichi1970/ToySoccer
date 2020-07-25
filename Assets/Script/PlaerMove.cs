@@ -5,9 +5,11 @@ using UnityEngine;
 public class PlaerMove : MonoBehaviour
 {
     private Vector3 pos;
+
     public float posUp;
     public float posDown;
     public float moveSpeed;
+
     float YInp;
     float YInp2;
 
@@ -23,6 +25,7 @@ public class PlaerMove : MonoBehaviour
         {
             YInp = Input.GetAxis("Vertical1");
             YInp2 = Input.GetAxis("Vertical2");
+            //Xbox360コントローラー操作
             if (YInp > 0 && gameObject.tag == ("SoccerPlayer"))
             {
                 transform.Translate(0, 0, moveSpeed);
@@ -31,6 +34,7 @@ public class PlaerMove : MonoBehaviour
             {
                 transform.Translate(0, 0, -moveSpeed);
             }
+
             if (YInp2 < 0 && gameObject.tag == ("SoccerPlayer2"))
             {
                 transform.Translate(0, 0, -moveSpeed);
@@ -39,7 +43,7 @@ public class PlaerMove : MonoBehaviour
             {
                 transform.Translate(0, 0, moveSpeed);
             }
-
+　　　　　　//キーボード操作
             if (Input.GetKey(KeyCode.W) && gameObject.tag == ("SoccerPlayer"))
             {
                 transform.Translate(0, 0, moveSpeed);
@@ -48,6 +52,7 @@ public class PlaerMove : MonoBehaviour
             {
                 transform.Translate(0, 0, -moveSpeed);
             }
+
             if (Input.GetKey(KeyCode.I) && gameObject.tag == ("SoccerPlayer2"))
             {
                 transform.Translate(0, 0, moveSpeed);
@@ -59,6 +64,7 @@ public class PlaerMove : MonoBehaviour
             Clamp();
         }
     }
+    // プレーヤーの移動できる範囲を制限する命令ブロック
     void Clamp()
     {
         // プレーヤーの位置情報を「pos」という箱の中に入れる。

@@ -5,6 +5,7 @@ using UnityEngine;
 public class TurnPlayer : MonoBehaviour
 {
     private float StopCoroutine = 0;
+
     bool Player1RightOn;
     bool Player1LeftOn;
     bool Player2RightOn;
@@ -12,8 +13,10 @@ public class TurnPlayer : MonoBehaviour
 
     void Start()
     {
+        //Player1が回転しているか判定
         Player1RightOn = false;
         Player1LeftOn = false;
+        //Player2が回転しているか判定
         Player2RightOn = false;
         Player2LeftOn = false;
     }
@@ -23,7 +26,7 @@ public class TurnPlayer : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Q) && gameObject.tag == ("SoccerPlayer"))
         {
-            //Playerを左回転を強制的に止める
+            //回転を強制的に止める
             Player1LeftOn = false;
 
             if (Player1RightOn == false)
@@ -34,35 +37,13 @@ public class TurnPlayer : MonoBehaviour
         }
         if (Input.GetKeyDown(KeyCode.E) && gameObject.tag == ("SoccerPlayer"))
         {
-            //Playerを右回転を強制的に止める
+            //回転を強制的に止める
             Player1RightOn = false;
 
             if (Player1LeftOn == false)
             {
                 StopCoroutine = 0;
                 Player1LeftOn = true;
-            }
-        }
-        if (Input.GetKeyDown(KeyCode.O) && gameObject.tag == ("SoccerPlayer2"))
-        {
-            //Playerを左回転を強制的に止める
-            Player2LeftOn = false;
-
-            if (Player2RightOn == false)
-            {
-                StopCoroutine = 0;
-                Player2RightOn = true;
-            }
-        }
-        if (Input.GetKeyDown(KeyCode.U) && gameObject.tag == ("SoccerPlayer2"))
-        {
-            //Playerを右回転を強制的に止める
-            Player2RightOn = false;
-
-            if (Player2LeftOn == false)
-            {
-                StopCoroutine = 0;
-                Player2LeftOn = true;
             }
         }
         if (Player1RightOn)
@@ -74,6 +55,28 @@ public class TurnPlayer : MonoBehaviour
             LeftTurn();
         }
 
+        if (Input.GetKeyDown(KeyCode.O) && gameObject.tag == ("SoccerPlayer2"))
+        {
+            //回転を強制的に止める
+            Player2LeftOn = false;
+
+            if (Player2RightOn == false)
+            {
+                StopCoroutine = 0;
+                Player2RightOn = true;
+            }
+        }
+        if (Input.GetKeyDown(KeyCode.U) && gameObject.tag == ("SoccerPlayer2"))
+        {
+            //回転を強制的に止める
+            Player2RightOn = false;
+
+            if (Player2LeftOn == false)
+            {
+                StopCoroutine = 0;
+                Player2LeftOn = true;
+            }
+        }
         if (Player2RightOn)
         {
             RightTurn();
@@ -88,16 +91,25 @@ public class TurnPlayer : MonoBehaviour
         if (gameObject.tag == ("SoccerPlayer"))
         {
             StopCoroutine += Time.deltaTime;
+
+            //Y軸360度回転
             transform.Rotate(0, 360 / 0.2f * Time.deltaTime, 0);
+
+            //0.2秒後回転を強制的に止める
             if (StopCoroutine > 0.2f)
             {
                 Player1RightOn = false;
             }
         }
+
         if (gameObject.tag == ("SoccerPlayer2"))
         {
             StopCoroutine += Time.deltaTime;
+
+            //Y軸360度回転
             transform.Rotate(0, 360 / 0.2f * Time.deltaTime, 0);
+
+            //0.2秒後回転を強制的に止める
             if (StopCoroutine > 0.2f)
             {
                 Player2RightOn = false;
@@ -109,16 +121,25 @@ public class TurnPlayer : MonoBehaviour
         if (gameObject.tag == ("SoccerPlayer"))
         {
             StopCoroutine += Time.deltaTime;
+
+            //Y軸360度回転
             transform.Rotate(0, -360 / 0.2f * Time.deltaTime, 0);
+
+            //0.2秒後回転を強制的に止める
             if (StopCoroutine > 0.2f)
             {
                 Player1LeftOn = false;
             }
         }
+
         if (gameObject.tag == ("SoccerPlayer2"))
         {
             StopCoroutine += Time.deltaTime;
+
+            //Y軸360度回転
             transform.Rotate(0, -360 / 0.2f * Time.deltaTime, 0);
+
+            //0.2秒後回転を強制的に止める
             if (StopCoroutine > 0.2f)
             {
                 Player2LeftOn = false;

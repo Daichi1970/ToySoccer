@@ -5,7 +5,9 @@ using UnityEngine;
 public class keeper : MonoBehaviour
 {
     private Vector3 pos;
+
     public GameObject Player;
+
     float XInp;
     float XInp2;
 
@@ -14,7 +16,6 @@ public class keeper : MonoBehaviour
 
     }
 
-    // Update is called once per frame
     void Update()
     {
         // XInputDotNetPure.GamePad.SetVibration(000, 1, 1);
@@ -22,6 +23,7 @@ public class keeper : MonoBehaviour
         {      
             XInp = Input.GetAxis("Horizontal1");
             XInp2 = Input.GetAxis("Horizontal2");
+            //Xbox360コントローラー操作
             if (XInp > 0 && Player.name == ("Jammo_keeper"))
             {
                 transform.Translate(0.5f, 0, 0);
@@ -38,6 +40,7 @@ public class keeper : MonoBehaviour
             {
                 transform.Translate(-0.5f, 0, 0);
             }
+            //キーボード操作
             if (Input.GetKey(KeyCode.D) && Player.name == ("Jammo_keeper"))
             {
                 transform.Translate(0.1f, 0, 0);
@@ -46,6 +49,7 @@ public class keeper : MonoBehaviour
             {
                 transform.Translate(-0.1f, 0, 0);
             }
+
             if (Input.GetKey(KeyCode.L) && Player.name == ("Jammo_keeper2"))
             {
                 transform.Translate(0.1f, 0, 0);
@@ -57,9 +61,10 @@ public class keeper : MonoBehaviour
             Clamp();
         }
     }
+    //キーパーの移動できる範囲を制限する命令ブロック
     void Clamp()
     {
-        // プレーヤーの位置情報を「pos」という箱の中に入れる。
+        //キーパーの位置情報を「pos」という箱の中に入れる。
         pos = transform.position;
 
         pos.x = Mathf.Clamp(pos.x, -0.5f, 0.5f);

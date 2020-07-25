@@ -10,12 +10,14 @@ public class GameManager : MonoBehaviour
     public TextMesh GameTimerText;
     public Text GameTimeText;
     public Text GameText;
-    public float GameTime;
+
     float Interval = 3;
+
     static int InGameCount = 0;
     static int NotGameCount = 0;
     static float StartCount = 3;
     static float GameCount;
+
     public static bool Game = false;
 
     void Start()
@@ -36,6 +38,7 @@ public class GameManager : MonoBehaviour
             InGame();
         }
     }
+    //試合中
     void InGame()
     {
         Debug.Log("InGameCount:"+InGameCount);
@@ -67,6 +70,7 @@ public class GameManager : MonoBehaviour
             GameTimerText.text = GameCount.ToString("N0");
         }
     }
+    //試合外
     void NotGame()
     {
         switch (NotGameCount)
