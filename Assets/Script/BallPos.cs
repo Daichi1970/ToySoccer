@@ -27,26 +27,28 @@ public class BallPos : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Debug.Log(clamp);
-        if (transform.position.z >= 3.3f && transform.position.x <= 0.67f && transform.position.x >= -0.67f)
+        if (GameManager.Game)
         {
-            GoalCount1++;
-            GoalCountText1.text = GoalCount1.ToString();
-            // 現在のScene名を取得する
-            Scene loadScene = SceneManager.GetActiveScene();
-            // Sceneの読み直し
-            SceneManager.LoadScene(loadScene.name);
+            if (transform.position.z >= 3.3f && transform.position.x <= 0.67f && transform.position.x >= -0.67f)
+            {
+                GoalCount1++;
+                GoalCountText1.text = GoalCount1.ToString();
+                // 現在のScene名を取得する
+                Scene loadScene = SceneManager.GetActiveScene();
+                // Sceneの読み直し
+                SceneManager.LoadScene(loadScene.name);
+            }
+            if (transform.position.z <= -3.3f && transform.position.x <= 0.67 && transform.position.x >= -0.67f)
+            {
+                GoalCount2++;
+                GoalCountText2.text = GoalCount2.ToString();
+                // 現在のScene名を取得する
+                Scene loadScene = SceneManager.GetActiveScene();
+                // Sceneの読み直し
+                SceneManager.LoadScene(loadScene.name);
+            }
         }
-        if (transform.position.z <= -3.3f && transform.position.x <= 0.67 && transform.position.x >= -0.67f)
-        {
-            GoalCount2++;
-            GoalCountText2.text = GoalCount2.ToString();
-            // 現在のScene名を取得する
-            Scene loadScene = SceneManager.GetActiveScene();
-            // Sceneの読み直し
-            SceneManager.LoadScene(loadScene.name);
-        }
-        if(clamp)
+            if (clamp)
             Clamp();
     }
     // ボールの移動できる範囲を制限する命令ブロック

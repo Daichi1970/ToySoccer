@@ -12,6 +12,8 @@ public class GameManager : MonoBehaviour
     public Text GameTimeText;
     public Text GameText;
     public GameObject second;
+    public GameObject Red;
+    public GameObject Blue;
     public AudioClip audioClip1;
 
     float Interval = 3;
@@ -27,6 +29,8 @@ public class GameManager : MonoBehaviour
 
     void Start()
     {
+        Red.SetActive(false);
+        Blue.SetActive(false);
         second.transform.rotation = SecondPos;
     }
 
@@ -64,7 +68,8 @@ public class GameManager : MonoBehaviour
                 StartCount = 3;
                 break;
         }
-        if (GameCount > 45)
+        //試合時間
+        if (GameCount > 5)
         {
             SecondPos = new Quaternion(0, 0, 0, 0);
             if (InGameCount <= 2)
@@ -174,13 +179,19 @@ public class GameManager : MonoBehaviour
                 if (BallPos.GoalCount1 > BallPos.GoalCount2)
                 {
                     GameText.text = "Player1 Win";
+                    Red.SetActive(true);
                 }
-                else if(BallPos.GoalCount1 < BallPos.GoalCount2)
+                else if (BallPos.GoalCount1 < BallPos.GoalCount2)
                 {
                     GameText.text = "Player2 Win";
+                    Blue.SetActive(true);
                 }
                 else
+                {
                     GameText.text = "Drow";
+                    Red.SetActive(true);
+                    Blue.SetActive(true);
+                }
                 GameText.text += "\n"+ BallPos.GoalCount1 +"-" + BallPos.GoalCount2;
                 break;
         }
