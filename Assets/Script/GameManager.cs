@@ -69,7 +69,7 @@ public class GameManager : MonoBehaviour
                 break;
         }
         //試合時間
-        if (GameCount > 5)
+        if (GameCount > 45)
         {
             SecondPos = new Quaternion(0, 0, 0, 0);
             if (InGameCount <= 2)

@@ -7,6 +7,8 @@ TagManager:
   - PlayerEyes
   - SoccerPlayer
   - SoccerPlayer2
+  - SoccerPlayerCenter
+  - SoccerPlayerCenter2
   layers:
   - Default
   - TransparentFX

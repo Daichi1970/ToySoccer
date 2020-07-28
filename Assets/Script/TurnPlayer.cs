@@ -24,6 +24,29 @@ public class TurnPlayer : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //Xbox360コントローラー操作
+        if (Input.GetButtonDown("ButtonA1") && gameObject.tag == ("SoccerPlayer"))
+        {
+            //回転を強制的に止める
+            Player1LeftOn = false;
+
+            if (Player1RightOn == false)
+            {
+                StopCoroutine = 0;
+                Player1RightOn = true;
+            }
+        }
+        if (Input.GetButtonDown("ButtonB1") && gameObject.tag == ("SoccerPlayer"))
+        {
+            //回転を強制的に止める
+            Player1RightOn = false;
+
+            if (Player1LeftOn == false)
+            {
+                StopCoroutine = 0;
+                Player1LeftOn = true;
+            }
+        }
         if (Input.GetKeyDown(KeyCode.Q) && gameObject.tag == ("SoccerPlayer"))
         {
             //回転を強制的に止める
@@ -56,6 +79,28 @@ public class TurnPlayer : MonoBehaviour
         }
 
         if (Input.GetKeyDown(KeyCode.O) && gameObject.tag == ("SoccerPlayer2"))
+        {
+            //回転を強制的に止める
+            Player2LeftOn = false;
+
+            if (Player2RightOn == false)
+            {
+                StopCoroutine = 0;
+                Player2RightOn = true;
+            }
+        }
+        if (Input.GetButtonDown("ButtonA2") && gameObject.tag == ("SoccerPlayer2"))
+        {
+            //回転を強制的に止める
+            Player2RightOn = false;
+
+            if (Player2LeftOn == false)
+            {
+                StopCoroutine = 0;
+                Player2LeftOn = true;
+            }
+        }
+        if (Input.GetButtonDown("ButtonB2") && gameObject.tag == ("SoccerPlayer2"))
         {
             //回転を強制的に止める
             Player2LeftOn = false;

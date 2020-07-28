@@ -908,6 +908,7 @@ MonoBehaviour:
   posUp: -0.3
   posDown: -2.5
   moveSpeed: 0.1
+  centerMoveSpeed: 0
 --- !u!4 &214984871
 Transform:
   m_ObjectHideFlags: 0
@@ -1063,6 +1064,7 @@ MonoBehaviour:
   posUp: 3
   posDown: -3
   moveSpeed: 0.1
+  centerMoveSpeed: 0
 --- !u!4 &325183631
 Transform:
   m_ObjectHideFlags: 0
@@ -1231,6 +1233,7 @@ MonoBehaviour:
   posUp: -0.3
   posDown: -2.5
   moveSpeed: 0.1
+  centerMoveSpeed: 0
 --- !u!4 &511576262
 Transform:
   m_ObjectHideFlags: 0
@@ -3823,6 +3826,7 @@ MonoBehaviour:
   posUp: 3
   posDown: -3
   moveSpeed: 0.1
+  centerMoveSpeed: 0
 --- !u!4 &853319805
 Transform:
   m_ObjectHideFlags: 0
@@ -4881,6 +4885,7 @@ MonoBehaviour:
   posUp: 2.5
   posDown: 0.3
   moveSpeed: 0.1
+  centerMoveSpeed: 0
 --- !u!4 &970154410
 Transform:
   m_ObjectHideFlags: 0
@@ -5658,6 +5663,7 @@ MonoBehaviour:
   posUp: 2.5
   posDown: 0.3
   moveSpeed: 0.1
+  centerMoveSpeed: 0
 --- !u!4 &1348324451
 Transform:
   m_ObjectHideFlags: 0
@@ -6933,7 +6939,7 @@ GameObject:
   - component: {fileID: 1543182529}
   m_Layer: 9
   m_Name: RedCenter
-  m_TagString: SoccerPlayer
+  m_TagString: SoccerPlayerCenter
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6953,6 +6959,7 @@ MonoBehaviour:
   posUp: -0.4
   posDown: -2
   moveSpeed: 0.1
+  centerMoveSpeed: 0.05
 --- !u!4 &1543182527
 Transform:
   m_ObjectHideFlags: 0
@@ -7112,7 +7119,7 @@ GameObject:
   - component: {fileID: 1575380464}
   m_Layer: 10
   m_Name: BlueCenter
-  m_TagString: SoccerPlayer2
+  m_TagString: SoccerPlayerCenter2
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -7132,6 +7139,7 @@ MonoBehaviour:
   posUp: 2
   posDown: 0.4
   moveSpeed: 0.1
+  centerMoveSpeed: 0.05
 --- !u!4 &1575380462
 Transform:
   m_ObjectHideFlags: 0
@@ -7783,6 +7791,7 @@ MonoBehaviour:
   posUp: 3
   posDown: -3
   moveSpeed: 0.1
+  centerMoveSpeed: 0
 --- !u!4 &1645991895
 Transform:
   m_ObjectHideFlags: 0
@@ -10594,6 +10603,7 @@ MonoBehaviour:
   posUp: 3
   posDown: -3
   moveSpeed: 0.1
+  centerMoveSpeed: 0
 --- !u!4 &2118937526
 Transform:
   m_ObjectHideFlags: 0

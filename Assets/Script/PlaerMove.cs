@@ -9,7 +9,7 @@ public class PlaerMove : MonoBehaviour
     public float posUp;
     public float posDown;
     public float moveSpeed;
-
+    public float centerMoveSpeed;
     float YInp;
     float YInp2;
 
@@ -35,6 +35,15 @@ public class PlaerMove : MonoBehaviour
                 transform.Translate(0, 0, -moveSpeed);
             }
 
+            if (YInp > 0 && gameObject.tag == ("SoccerPlayerCenter"))
+            {
+                transform.Translate(0, 0, centerMoveSpeed);
+            }
+            if (YInp < 0 && gameObject.tag == ("SoccerPlayerCenter"))
+            {
+                transform.Translate(0, 0, -centerMoveSpeed);
+            }
+
             if (YInp2 < 0 && gameObject.tag == ("SoccerPlayer2"))
             {
                 transform.Translate(0, 0, -moveSpeed);
@@ -43,6 +52,15 @@ public class PlaerMove : MonoBehaviour
             {
                 transform.Translate(0, 0, moveSpeed);
             }
+            if (YInp2 < 0 && gameObject.tag == ("SoccerPlayerCenter2"))
+            {
+                transform.Translate(0, 0, -centerMoveSpeed);
+            }
+            if (YInp2 > 0 && gameObject.tag == ("SoccerPlayerCenter2"))
+            {
+                transform.Translate(0, 0, centerMoveSpeed);
+            }
+
 　　　　　　//キーボード操作
             if (Input.GetKey(KeyCode.W) && gameObject.tag == ("SoccerPlayer"))
             {
