@@ -29,7 +29,7 @@ public class BallPos : MonoBehaviour
     {
         if (GameManager.Game)
         {
-            if (transform.position.z >= 3.3f && transform.position.x <= 0.67f && transform.position.x >= -0.67f)
+            if (transform.position.z >= 3.3f && transform.position.x <= 0.7f && transform.position.x >= -0.7f)
             {
                 GoalCount1++;
                 GoalCountText1.text = GoalCount1.ToString();
@@ -38,7 +38,7 @@ public class BallPos : MonoBehaviour
                 // Sceneの読み直し
                 SceneManager.LoadScene(loadScene.name);
             }
-            if (transform.position.z <= -3.3f && transform.position.x <= 0.67 && transform.position.x >= -0.67f)
+            if (transform.position.z <= -3.3f && transform.position.x <= 0.7 && transform.position.x >= -0.7f)
             {
                 GoalCount2++;
                 GoalCountText2.text = GoalCount2.ToString();

@@ -26,37 +26,37 @@ public class keeper : MonoBehaviour
             //Xbox360コントローラー操作
             if (XInp > 0 && Player.name == ("Jammo_keeper"))
             {
-                transform.Translate(0.3f, 0, 0);
+                transform.Translate(0.15f, 0, 0);
             }
             if (XInp < 0 && Player.name == ("Jammo_keeper"))
             {
-                transform.Translate(-0.3f, 0, 0);
+                transform.Translate(-0.15f, 0, 0);
             }
             if (XInp2 > 0 && Player.name == ("Jammo_keeper2"))
             {
-                transform.Translate(0.3f, 0, 0);
+                transform.Translate(0.15f, 0, 0);
             }
             if (XInp2 < 0 && Player.name == ("Jammo_keeper2"))
             {
-                transform.Translate(-0.3f, 0, 0);
+                transform.Translate(-0.15f, 0, 0);
             }
             //キーボード操作
             if (Input.GetKey(KeyCode.D) && Player.name == ("Jammo_keeper"))
             {
-                transform.Translate(0.3f, 0, 0);
+                transform.Translate(0.15f, 0, 0);
             }
             if (Input.GetKey(KeyCode.A) && Player.name == ("Jammo_keeper"))
             {
-                transform.Translate(-0.3f, 0, 0);
+                transform.Translate(-0.15f, 0, 0);
             }
 
             if (Input.GetKey(KeyCode.L) && Player.name == ("Jammo_keeper2"))
             {
-                transform.Translate(0.3f, 0, 0);
+                transform.Translate(0.15f, 0, 0);
             }
             if (Input.GetKey(KeyCode.J) && Player.name == ("Jammo_keeper2"))
             {
-                transform.Translate(-0.3f, 0, 0);
+                transform.Translate(-0.15f, 0, 0);
             }
             Clamp();
         }

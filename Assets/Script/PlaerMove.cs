@@ -34,7 +34,6 @@ public class PlaerMove : MonoBehaviour
             {
                 transform.Translate(0, 0, -moveSpeed);
             }
-
             if (YInp > 0 && gameObject.tag == ("SoccerPlayerCenter"))
             {
                 transform.Translate(0, 0, centerMoveSpeed);
@@ -60,7 +59,6 @@ public class PlaerMove : MonoBehaviour
             {
                 transform.Translate(0, 0, centerMoveSpeed);
             }
-
 　　　　　　//キーボード操作
             if (Input.GetKey(KeyCode.W) && gameObject.tag == ("SoccerPlayer"))
             {
@@ -70,6 +68,14 @@ public class PlaerMove : MonoBehaviour
             {
                 transform.Translate(0, 0, -moveSpeed);
             }
+            if (Input.GetKey(KeyCode.W) && gameObject.tag == ("SoccerPlayerCenter"))
+            {
+                transform.Translate(0, 0, centerMoveSpeed);
+            }
+            if (Input.GetKey(KeyCode.S) && gameObject.tag == ("SoccerPlayerCenter"))
+            {
+                transform.Translate(0, 0, -centerMoveSpeed);
+            }
 
             if (Input.GetKey(KeyCode.I) && gameObject.tag == ("SoccerPlayer2"))
             {
@@ -78,6 +84,14 @@ public class PlaerMove : MonoBehaviour
             if (Input.GetKey(KeyCode.K) && gameObject.tag == ("SoccerPlayer2"))
             {
                 transform.Translate(0, 0, -moveSpeed);
+            }
+            if (Input.GetKey(KeyCode.I) && gameObject.tag == ("SoccerPlayerCenter2"))
+            {
+                transform.Translate(0, 0, centerMoveSpeed);
+            }
+            if (Input.GetKey(KeyCode.K) && gameObject.tag == ("SoccerPlayerCenter2"))
+            {
+                transform.Translate(0, 0, -centerMoveSpeed);
             }
             Clamp();
         }
