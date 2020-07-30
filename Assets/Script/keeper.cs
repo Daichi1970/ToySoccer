@@ -7,8 +7,9 @@ public class keeper : MonoBehaviour
     private Vector3 pos;
 
     public GameObject Player;
-    public float KeeperMove;
-    public float KeeperPosX;
+
+    [SerializeField] float KeeperMove;
+    [SerializeField] float KeeperPosX;
 
     float XInp;
     float XInp2;

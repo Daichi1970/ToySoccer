@@ -6,10 +6,10 @@ public class PlaerMove : MonoBehaviour
 {
     private Vector3 pos;
 
-    public float posUp;
-    public float posDown;
-    public float moveSpeed;
-    public float centerMoveSpeed;
+    [SerializeField] float posUp;
+    [SerializeField] float posDown;
+    [SerializeField] float moveSpeed;
+    [SerializeField] float centerMoveSpeed;
     float YInp;
     float YInp2;
 

@@ -15,9 +15,10 @@ public class GameManager : MonoBehaviour
     public GameObject Red;
     public GameObject Blue;
     public AudioClip audioClip1;
-    public float IntervalTime;
-    public float StartTime;
-    public float MatchTime;
+
+    [SerializeField] float IntervalTime;
+    [SerializeField] float StartTime;
+    [SerializeField] float MatchTime;
 
     float Interval = 3;
 
@@ -43,7 +44,7 @@ public class GameManager : MonoBehaviour
     }
 
     void Update()
-    { 
+    {
         if (StartCount >= 0)
         {
             Game = false;
@@ -82,7 +83,7 @@ public class GameManager : MonoBehaviour
         if (GameCount > MatchTime)
         {
             SecondPos = new Quaternion(0, 0, 0, 0);
-            if (InGameCount <= InGameCount-1)
+            if (InGameCount <= InGameCount+1)
                 InGameCount++;
         }
         else
@@ -218,7 +219,7 @@ public class GameManager : MonoBehaviour
         //試合外時間
         if (StartCount <= IntervalTime)
         {
-            if (NotGameCount <= NotGameCount-1)
+            if (NotGameCount <= NotGameCount+1)
                 NotGameCount++;
         }
     }

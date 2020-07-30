@@ -12,10 +12,11 @@ public class BallPos : MonoBehaviour
     public TextMesh GoalCountText1;
     public TextMesh GoalCountText2;
     public AudioClip audioClip1;
-    public float GoalinPosZ;
-    public float GoalinPosX;
-    public float ClampPosX;
-    public float ClampPosZ;
+
+    [SerializeField] float GoalinPosZ;
+    [SerializeField] float GoalinPosX;
+    [SerializeField] float ClampPosX;
+    [SerializeField] float ClampPosZ;
 
     public static int GoalCount1;
     public static int GoalCount2;

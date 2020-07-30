@@ -5190,6 +5190,14 @@ PrefabInstance:
       propertyPath: ClampPosZ
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 1037865371, guid: ec3e8f3ed27e2244caaedaf589590a03, type: 3}
+      propertyPath: m_Parameters.numCornerVertices
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1037865371, guid: ec3e8f3ed27e2244caaedaf589590a03, type: 3}
+      propertyPath: m_Parameters.numCapVertices
+      value: 10
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ec3e8f3ed27e2244caaedaf589590a03, type: 3}
 --- !u!1 &1115444158
@@ -5435,6 +5443,7 @@ MonoBehaviour:
   audioClip1: {fileID: 8300000, guid: 2642ac47c99aa9f4ab3f7b33d7ccb55e, type: 3}
   IntervalTime: 0
   StartTime: 3
+  MatchTime: 45
 --- !u!4 &1318138559
 Transform:
   m_ObjectHideFlags: 0
