@@ -13,10 +13,10 @@ public class TurnPlayer : MonoBehaviour
 
     void Start()
     {
-        //右画面プレイヤーが回転しているか判定
+        //左画面プレイヤーが回転しているか判定
         Player1RightOn = false;
         Player1LeftOn = false;
-        //左画面プレイヤーが回転しているか判定
+        //右画面プレイヤーが回転しているか判定
         Player2RightOn = false;
         Player2LeftOn = false;
     }
