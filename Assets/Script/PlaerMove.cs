@@ -21,6 +21,7 @@ public class PlaerMove : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //試合中
         if (GameManager.Game)
         {
             YInp = Input.GetAxis("Vertical1");

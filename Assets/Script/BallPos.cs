@@ -12,6 +12,10 @@ public class BallPos : MonoBehaviour
     public TextMesh GoalCountText1;
     public TextMesh GoalCountText2;
     public AudioClip audioClip1;
+    public float GoalinPosZ;
+    public float GoalinPosX;
+    public float ClampPosX;
+    public float ClampPosZ;
 
     public static int GoalCount1;
     public static int GoalCount2;
@@ -27,9 +31,11 @@ public class BallPos : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //試合中
         if (GameManager.Game)
         {
-            if (transform.position.z >= 3.3f && transform.position.x <= 0.7f && transform.position.x >= -0.7f)
+            //ゴール判定 上
+            if (transform.position.z >= GoalinPosZ && transform.position.x <= GoalinPosX && transform.position.x >= -GoalinPosX)
             {
                 GoalCount1++;
                 GoalCountText1.text = GoalCount1.ToString();
@@ -38,7 +44,9 @@ public class BallPos : MonoBehaviour
                 // Sceneの読み直し
                 SceneManager.LoadScene(loadScene.name);
             }
-            if (transform.position.z <= -3.3f && transform.position.x <= 0.7 && transform.position.x >= -0.7f)
+            
+            //ゴール判定 下
+            if (transform.position.z <= -GoalinPosZ && transform.position.x <= GoalinPosX && transform.position.x >= -GoalinPosX)
             {
                 GoalCount2++;
                 GoalCountText2.text = GoalCount2.ToString();
@@ -57,8 +65,8 @@ public class BallPos : MonoBehaviour
         // ボールの位置情報を「pos」という箱の中に入れる。
         pos = transform.position;
 
-        pos.x = Mathf.Clamp(pos.x, -1.1f, 1.1f);
-        pos.z = Mathf.Clamp(pos.z, -3, 3f);
+        pos.x = Mathf.Clamp(pos.x, -ClampPosX, ClampPosX);
+        pos.z = Mathf.Clamp(pos.z, -ClampPosZ, ClampPosZ);
 
         transform.position = pos;
     }

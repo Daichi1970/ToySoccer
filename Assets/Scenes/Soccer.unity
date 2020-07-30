@@ -2593,6 +2593,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Player: {fileID: 649969242}
+  KeeperMove: 0.15
+  KeeperPosX: 0.5
 --- !u!1 &666141706
 GameObject:
   m_ObjectHideFlags: 0
@@ -5172,6 +5174,22 @@ PrefabInstance:
       propertyPath: GoalCountText2
       value: 
       objectReference: {fileID: 744075973}
+    - target: {fileID: 1391124076, guid: ec3e8f3ed27e2244caaedaf589590a03, type: 3}
+      propertyPath: GoalinPosZ
+      value: 3.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1391124076, guid: ec3e8f3ed27e2244caaedaf589590a03, type: 3}
+      propertyPath: GoalinPosX
+      value: 0.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 1391124076, guid: ec3e8f3ed27e2244caaedaf589590a03, type: 3}
+      propertyPath: ClampPosX
+      value: 1.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1391124076, guid: ec3e8f3ed27e2244caaedaf589590a03, type: 3}
+      propertyPath: ClampPosZ
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ec3e8f3ed27e2244caaedaf589590a03, type: 3}
 --- !u!1 &1115444158
@@ -5415,6 +5433,8 @@ MonoBehaviour:
   Red: {fileID: 405258367}
   Blue: {fileID: 1323487042}
   audioClip1: {fileID: 8300000, guid: 2642ac47c99aa9f4ab3f7b33d7ccb55e, type: 3}
+  IntervalTime: 0
+  StartTime: 3
 --- !u!4 &1318138559
 Transform:
   m_ObjectHideFlags: 0
@@ -6901,6 +6921,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Player: {fileID: 1491726763}
+  KeeperMove: 0.15
+  KeeperPosX: 0.5
 --- !u!1 &1517146426 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3541754002163558908, guid: 795ce586491d723428d8ba4f2eb433ef,
