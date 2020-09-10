@@ -10,13 +10,13 @@ public class clockController : MonoBehaviour
 
     public GameObject second;
 
-    void Start()
+    private void Start()
     {
         if (!sec)
             Destroy(second); // 秒針を消す
     }
 
-    void Update()
+    private void Update()
     {
         if (sec)
         {

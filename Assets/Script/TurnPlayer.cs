@@ -6,12 +6,12 @@ public class TurnPlayer : MonoBehaviour
 {
     private float StopCoroutine = 0;
 
-    bool Player1RightOn;
-    bool Player1LeftOn;
-    bool Player2RightOn;
-    bool Player2LeftOn;
+    private bool Player1RightOn;
+    private bool Player1LeftOn;
+    private bool Player2RightOn;
+    private bool Player2LeftOn;
 
-    void Start()
+    private void Start()
     {
         //左画面プレイヤーが回転しているか判定
         Player1RightOn = false;
@@ -22,7 +22,7 @@ public class TurnPlayer : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    private void Update()
     {
         //Xbox360コントローラー操作
         if (Input.GetButtonDown("ButtonA1") && gameObject.tag == ("SoccerPlayer"))
@@ -137,7 +137,7 @@ public class TurnPlayer : MonoBehaviour
             LeftTurn();
         }
     }
-    void RightTurn()
+    private void RightTurn()
     {
         //左画面プレイヤー 右回転処理
         if (gameObject.tag == ("SoccerPlayer"))
@@ -169,7 +169,7 @@ public class TurnPlayer : MonoBehaviour
             }
         }
     }
-    void LeftTurn()
+    private void LeftTurn()
     {
         //右画面プレイヤー　左回転処理
         if (gameObject.tag == ("SoccerPlayer"))

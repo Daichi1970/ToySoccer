@@ -14,12 +14,12 @@ public class keeper : MonoBehaviour
     float XInp;
     float XInp2;
 
-    void Start()
+    private void Start()
     {
 
     }
 
-    void Update()
+    private void Update()
     {
         //試合中
         if (GameManager.Game)
@@ -67,7 +67,7 @@ public class keeper : MonoBehaviour
         }
     }
     //キーパーの移動できる範囲を制限する命令ブロック
-    void Clamp()
+    private void Clamp()
     {
         //キーパーの位置情報を「pos」という箱の中に入れる。
         pos = transform.position;

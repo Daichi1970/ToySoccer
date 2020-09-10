@@ -20,7 +20,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] float StartTime;
     [SerializeField] float MatchTime;
 
-    float Interval = 3;
+    private float Interval = 3;
 
     static int InGameCount = 0;
     static int NotGameCount = 0;
@@ -31,7 +31,7 @@ public class GameManager : MonoBehaviour
 
     public static bool Game = false;
 
-    void Start()
+    private void Start()
     {
         //赤色 紙ふぶき
         Red.SetActive(false);
@@ -43,7 +43,7 @@ public class GameManager : MonoBehaviour
         second.transform.rotation = SecondPos;
     }
 
-    void Update()
+    private void Update()
     {
         if (StartCount >= 0)
         {
@@ -57,7 +57,7 @@ public class GameManager : MonoBehaviour
         }
     }
     //試合中
-    void InGame()
+    private void InGame()
     {
         SecondPos = second.transform.rotation;
         second.transform.rotation = SecondPos;
@@ -103,7 +103,7 @@ public class GameManager : MonoBehaviour
         }
     }
     //試合外
-    void NotGame()
+    private void NotGame()
     {
         //試合外進行
         switch (NotGameCount)
@@ -224,7 +224,7 @@ public class GameManager : MonoBehaviour
         }
     }
     //一回サウンドを再生かつ次のswitch caseへ
-    void NextSwitch()
+    private void NextSwitch()
     {
         Interval = 3;
         PlayOneShot = true;

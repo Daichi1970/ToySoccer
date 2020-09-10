@@ -20,9 +20,9 @@ public class BallPos : MonoBehaviour
 
     public static int GoalCount1;
     public static int GoalCount2;
-    bool clamp;
+    public bool clamp;
 
-    void Start()
+    private void Start()
     {
         clamp = true;
         GoalCountText1.text = GoalCount1.ToString();
@@ -30,7 +30,7 @@ public class BallPos : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    private void Update()
     {
         //試合中
         if (GameManager.Game)
@@ -61,7 +61,7 @@ public class BallPos : MonoBehaviour
             Clamp();
     }
     // ボールの移動できる範囲を制限する命令ブロック
-    void Clamp()
+    private void Clamp()
     {
         // ボールの位置情報を「pos」という箱の中に入れる。
         pos = transform.position;

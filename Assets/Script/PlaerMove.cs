@@ -10,16 +10,16 @@ public class PlaerMove : MonoBehaviour
     [SerializeField] float posDown;
     [SerializeField] float moveSpeed;
     [SerializeField] float centerMoveSpeed;
-    float YInp;
-    float YInp2;
+    public float YInp;
+    public float YInp2;
 
-    void Start()
+    private void Start()
     {
       
     }
 
     // Update is called once per frame
-    void Update()
+    private void Update()
     {
         //試合中
         if (GameManager.Game)
@@ -98,7 +98,7 @@ public class PlaerMove : MonoBehaviour
         }
     }
     // プレーヤーの移動できる範囲を制限する命令ブロック
-    void Clamp()
+    private void Clamp()
     {
         // プレーヤーの位置情報を「pos」という箱の中に入れる。
         pos = transform.position;
